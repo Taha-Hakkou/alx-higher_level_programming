@@ -1,3 +1,5 @@
 #!/usr/bin/python3
-from variable_load_5 import a
-print("{:d}".format(a))
+if __name__ == "__main__":
+    """print value of imported variable"""
+    from variable_load_5 import a
+    print("{:d}".format(a))
