@@ -17,13 +17,13 @@ void print_python_list(PyObject *p)
 	if (PyList_CheckExact(p))
 	{
 		size = PyList_Size(p);
-		alloc = ((PyListObject*)p)->allocated;
+		alloc = ((PyListObject *)p)->allocated;
 		printf("[*] Python list info\n");
 		printf("[*] Size of the Python List = %ld\n", size);
 		printf("[*] Allocated = %ld\n", alloc);
 		for (i = 0; i < size; i++)
 		{
-			item = ((PyListObject*)p)->ob_item[i];
+			item = ((PyListObject *)p)->ob_item[i];
 			printf("Element %ld: %s\n", i, item->ob_type->tp_name);
 			if (!strcmp(item->ob_type->tp_name, "bytes"))
 				print_python_bytes(item);
@@ -50,15 +50,15 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	printf("[.] bytes object info\n");
-	printf("  size: %ld\n", ((PyVarObject*)p)->ob_size);
-	printf("  trying string: %s\n", ((PyBytesObject*)p)->ob_sval);
+	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
+	printf("  trying string: %s\n", ((PyBytesObject *)p)->ob_sval);
 	if (((PyVarObject *)p)->ob_size > 10)
 		size = 10;
 	else
 		size = ((PyVarObject *)p)->ob_size + 1;
 	printf("  first %ld bytes:", size);
 	for (i = 0; i < size; i++)
-		printf(" %02hhx", ((PyBytesObject*)p)->ob_sval[i]);
+		printf(" %02hhx", ((PyBytesObject *)p)->ob_sval[i]);
 	printf("\n");
 }
 
@@ -102,7 +102,7 @@ static struct PyModuleDef libPyList = {
 	NULL
 };
 
-PyMODINIT_FUNC PyInit_libPyList()
+PyMODINIT_FUNC PyInit_libPyList(void)
 {
-	return PyModule_Create(&libPyList);
+	return (PyModule_Create(&libPyList));
 }

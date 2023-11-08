@@ -5,7 +5,7 @@ def roman_to_int(roman_string):
             roman_string is None):
         return (0)
 
-    roman_dictionary = {
+    roman_dict = {
             "I": 1,
             "V": 5,
             "X": 10,
@@ -17,14 +17,13 @@ def roman_to_int(roman_string):
     number = 0
 
     for i in range(len(roman_string)):
-        if roman_dictionary.get(roman_string[i], 0) == 0:
+        if roman_dict.get(roman_string[i], 0) == 0:
             return (0)
 
         if (i != (len(roman_string) - 1) and
-                roman_dictionary[roman_string[i]] < roman_dictionary[roman_string[i + 1]]):
-                number += roman_dictionary[roman_string[i]] * -1
+                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
+                number += roman_dict[roman_string[i]] * -1
 
         else:
-            number += roman_dictionary[roman_string[i]]
+            number += roman_dict[roman_string[i]]
     return (number)
-
