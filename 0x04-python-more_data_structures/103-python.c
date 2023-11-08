@@ -14,24 +14,17 @@ void print_python_list(PyObject *p)
 	Py_ssize_t size, alloc, i;
 	PyObject *item;
 
-	if (PyList_CheckExact(p))
+	size = ((PyVarObject *)p)->ob_size;
+	alloc = ((PyListObject *)p)->allocated;
+	printf("[*] Python list info\n");
+	printf("[*] Size of the Python List = %ld\n", size);
+	printf("[*] Allocated = %ld\n", alloc);
+	for (i = 0; i < size; i++)
 	{
-		size = PyList_Size(p);
-		alloc = ((PyListObject *)p)->allocated;
-		printf("[*] Python list info\n");
-		printf("[*] Size of the Python List = %ld\n", size);
-		printf("[*] Allocated = %ld\n", alloc);
-		for (i = 0; i < size; i++)
-		{
-			item = ((PyListObject *)p)->ob_item[i];
-			printf("Element %ld: %s\n", i, item->ob_type->tp_name);
-			if (!strcmp(item->ob_type->tp_name, "bytes"))
-				print_python_bytes(item);
-		}
-	}
-	else
-	{
-		printf("Not a list\n"); /* need a nice error handling */
+		item = ((PyListObject *)p)->ob_item[i];
+		printf("Element %ld: %s\n", i, item->ob_type->tp_name);
+		if (!strcmp(item->ob_type->tp_name, "bytes"))
+			print_python_bytes(item);
 	}
 }
 
