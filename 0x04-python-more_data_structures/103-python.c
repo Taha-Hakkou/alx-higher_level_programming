@@ -78,8 +78,8 @@ PyObject *bytes_handler(PyObject __attribute__((unused))*self, PyObject *args)
 }
 
 static PyMethodDef methods[] = {
-	{"print_python_list", list_handler, METH_FASTCALL, "listInfo"},
-	{"print_python_bytes", bytes_handler, METH_FASTCALL, "bytesInfo"},
+	{"print_python_list", list_handler, METH_VARARGS, "listInfo"},
+	{"print_python_bytes", bytes_handler, METH_VARARGS, "bytesInfo"},
 	{NULL, NULL, 0, NULL}
 };
 
