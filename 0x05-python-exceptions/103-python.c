@@ -87,4 +87,5 @@ void print_python_float(PyObject *p)
 	}
 	svalue = PyOS_double_to_string(pf->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", svalue);
+	PyMem_Free(svalue);
 }
