@@ -16,6 +16,7 @@ void print_python_list(PyObject *p)
 	PyObject *item;
 	const char *type;
 
+	fflush(stdout);
 	printf("[*] Python list info\n");
 	if (strcmp(p->ob_type->tp_name, "list"))
 	{
@@ -47,6 +48,7 @@ void print_python_bytes(PyObject *p)
 	PyBytesObject *bytes = (PyBytesObject *)p;
 	Py_ssize_t size, i;
 
+	fflush(stdout);
 	printf("[.] bytes object info\n");
 	if (strcmp(p->ob_type->tp_name, "bytes"))
 	{
@@ -74,17 +76,15 @@ void print_python_bytes(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	PyFloatObject *pf = (PyFloatObject *)p;
-	double fval;
+	char *svalue;
 
+	fflush(stdout);
 	printf("[.] float object info\n");
 	if (strcmp(p->ob_type->tp_name, "float"))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	fval = pf->ob_fval;
-	if (fval == (double)(int)(fval))
-		printf("  value: %.1f\n", fval);
-	else
-		printf("  value: %.16g\n", fval);
+	svalue = PyOS_double_to_string(pf->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", svalue);
 }
