@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Node & SinglyLinkedList classes"""
 
+
 class Node:
     """defines a node of a singly linked list
     Attributes:
@@ -47,6 +48,7 @@ class Node:
             self.__next_node = value
         else:
             raise TypeError("next_node must be a Node object")
+
 
 class SinglyLinkedList:
     """defines a singly linked list

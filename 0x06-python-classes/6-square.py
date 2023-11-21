@@ -9,6 +9,7 @@ class Square:
         __size (int): size of square class
         __position (tuple of 2 integers): position of top left element
     """
+
     def __init__(self, size=0, position=(0, 0)):
         """instantiation of the square object
         Args:
@@ -37,31 +38,30 @@ class Square:
 
     @property
     def position(self):
-        """position getter"""
+        """Get/set the current position of the square."""
         return (self.__position)
 
     @position.setter
     def position(self, value):
-        """position setter
-        Args:
-            value (tuple of 2 ints): coordinates
-        """
-        if isinstance(value, tuple) and len(value) == 2 and \
-                isinstance(value[0], int) and isinstance(value[1], int) \
-                and value[0] >= 0 and value[1] >= 0:
-            self.__position = value
-        else:
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all(isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """returns the square area based on size"""
         return (self.__size ** 2)
 
     def my_print(self):
-        """prints in stdout the square with the character #"""
-        [print() for i in range(self.__position[1])]
+        """Print the square with the # character."""
         if self.__size == 0:
-            print()
-        else:
-            [print(' ' * self.__position[0] + '#' * self.__size) \
-                    for i in range(self.__size)]
+            print("")
+            return
+
+        [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            print("")
