@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Define a MagicClass matching exactly a python bytecode"""
+
+
 class MagicClass:
     """magic class (Python bytecode)
     Attributes:

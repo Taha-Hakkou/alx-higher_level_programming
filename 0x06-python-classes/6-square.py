@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Square class"""
 
+
 class Square:
     """defines a square based on size
     TypeError & ValueError exceptions are handled
@@ -62,4 +63,5 @@ class Square:
         if self.__size == 0:
             print()
         else:
-            [print(' ' * self.__position[0] + '#' * self.__size) for i in range(self.__size)]
+            [print(' ' * self.__position[0] + '#' * self.__size) \
+                    for i in range(self.__size)]
