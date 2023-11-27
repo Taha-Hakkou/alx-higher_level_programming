@@ -54,4 +54,5 @@ class Rectangle:
         """makes rectangle object printable with character #"""
         if self.height == 0 or self.width == 0:
             return ('')
-        return (('#' * self.width + '\n') * (self.height - 1) + '#' * self.width)
+        return (('#' * self.width + '\n') * (self.height - 1) \
+                + '#' * self.width)

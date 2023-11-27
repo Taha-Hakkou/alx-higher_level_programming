@@ -54,14 +54,16 @@ class Rectangle:
         return (2 * (self.height + self.width))
 
     def __str__(self):
-        """returns a string representation of rectangle object with character #"""
+        """returns a string representation of rectangle object
+        with character #"""
         if self.height == 0 or self.width == 0:
             return ('')
-        return ((f'{self.print_symbol}' * self.width + '\n') * (self.height - 1) \
-                + f'{self.print_symbol}' * self.width)
+        return ((f'{self.print_symbol}' * self.width + '\n') \
+                * (self.height - 1) + f'{self.print_symbol}' * self.width)
 
     def __repr__(self):
-        """returns a string representation to recreate a new instance with eval()"""
+        """returns a string representation to recreate
+        a new instance with eval()"""
         return (f'Rectangle({self.width:d}, {self.height:d})')
 
     def __del__(self):
