@@ -11,8 +11,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """instantiates rectangle object with optional width & height"""
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -58,8 +58,8 @@ class Rectangle:
         with character #"""
         if self.height == 0 or self.width == 0:
             return ('')
-        return ((f'{self.print_symbol}' * self.width + '\n') \
-                * (self.height - 1) + f'{self.print_symbol}' * self.width)
+        return (f'{self.print_symbol}' * self.width + '\n') \
+                * (self.height - 1) + f'{self.print_symbol}' * self.width
 
     def __repr__(self):
         """returns a string representation to recreate
@@ -72,7 +72,7 @@ class Rectangle:
         Rectangle.number_of_instances -= 1
 
     @staticmethod
-    def bigger_or_equal(rect_1, rect_2): # static method
+    def bigger_or_equal(rect_1, rect_2):
         """returns the biggest rectangle based on the area"""
         if type(rect_1) != Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")

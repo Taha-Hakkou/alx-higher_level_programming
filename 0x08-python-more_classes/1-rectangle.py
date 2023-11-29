@@ -9,8 +9,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """instantiates rectangle object with optional width & height"""
-        self.height = height
         self.width = width
+        self.height = height
 
     @property
     def width(self):

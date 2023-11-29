@@ -9,8 +9,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """instantiates rectangle object with optional width & height"""
-        self.height = height
         self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -55,8 +55,8 @@ class Rectangle:
         with character #"""
         if self.height == 0 or self.width == 0:
             return ('')
-        return (('#' * self.width + '\n') * (self.height - 1) \
-                + '#' * self.width)
+        return ('#' * self.width + '\n') * (self.height - 1) \
+                + '#' * self.width
 
     def __repr__(self):
         """returns a string representation to recreate
