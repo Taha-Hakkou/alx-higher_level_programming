@@ -59,7 +59,7 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return ('')
         return (f'{self.print_symbol}' * self.width + '\n') \
-                * (self.height - 1) + f'{self.print_symbol}' * self.width
+            * (self.height - 1) + f'{self.print_symbol}' * self.width
 
     def __repr__(self):
         """returns a string representation to recreate
