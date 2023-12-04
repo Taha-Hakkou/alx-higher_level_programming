@@ -9,6 +9,7 @@ Using ``print_sorted``
 []
 
 >>> a.append(1)
+>>> a.print_sorted()
 [1]
 
 >>> a.append(-1)
