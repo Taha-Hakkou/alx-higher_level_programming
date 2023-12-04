@@ -1,0 +1,20 @@
+The ``1-my_list`` module
+========================
+Using ``print_sorted``
+----------------------
+>>> MyList = __import__('1-my_list').MyList
+>>> a = MyList()
+
+>>> a.print_sorted()
+[]
+
+>>> a.append(1)
+[1]
+
+>>> a.append(-1)
+>>> a.append(5)
+>>> a.append(-20)
+>>> a
+[1, -1, 5, -20]
+>>> a.print_sorted()
+[-20, -1, 1, 5]
