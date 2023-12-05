@@ -15,12 +15,12 @@ class Student:
 
     def to_json(self, attrs=None):
         """retrieves dictionary representation of student object"""
+        dlist = list(self.__dict__.items())
         if type(attrs) == list and all([type(s) == str for s in attrs]):
-            return (dict(filter((lambda s: s[0] in attrs), list(self.__dict__.items()))))
+            return (dict(filter((lambda s: s[0] in attrs), dlist)))
         return (self.__dict__)
 
     def reload_from_json(self, json):
         """replaces all attributes of student object"""
         for k, v in json.items():
             setattr(self, k, v)
-
