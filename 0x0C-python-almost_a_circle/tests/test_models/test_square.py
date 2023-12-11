@@ -7,17 +7,16 @@ from models.square import Square
 class TestSquare(unittest.TestCase):
     """defines unittests for Square(...)"""
 
-    def no_args_test(self):
-        """"""
-        b = Base()
-        self.assertEqual(b.id, 1)
-
-    def one_arg_test(self):
-        """"""
+    def test_one_arg(self):
+        """tests Square instance getter & setter"""
         b = Base(89)
         self.assertEqual(b.id, 89)
 
-    def id_inc_test(self):
-        """"""
+    def test_more_args(self):
+        """tests Square instance custom coordinates & id"""
         b1, b2, b3 = Base(), Base(98), Base()
         self.assertEqual(b3.id, 2)
+
+
+if __name__ == '__main__':
+    unittest.main()
