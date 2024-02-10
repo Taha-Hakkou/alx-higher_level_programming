@@ -16,6 +16,9 @@ def main(fsize, status):
     rcount = 0
     for request in sys.stdin:
         request = request.split()
+        if len(request) != 9 or type(request[-1]) != int \
+                or type(request[-2]) != int:
+            continue
         fsize += int(request[-1])
         status[request[-2]] += 1
         rcount += 1
