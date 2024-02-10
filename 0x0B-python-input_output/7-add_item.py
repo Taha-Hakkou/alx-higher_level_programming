@@ -2,16 +2,20 @@
 """
 7-add_item.py
 """
+import sys
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
-import sys
+
 
 def main():
-    my_list = load_from_json_file('add_item.json') # handle not existing file
-    new = []
-    for item in sys.argv:
-        new.append(item)
-    save_to_json_file(my_list + new[1:], 'add_item.json')
+    myList = []
+    try:
+        myList = load_from_json_file('add_item.json')
+    except Exception:
+        pass
+    for item in sys.argv[1:]:
+        myList.append(item)
+    save_to_json_file(myList, 'add_item.json')
 
 
 if __name__ == '__main__':
