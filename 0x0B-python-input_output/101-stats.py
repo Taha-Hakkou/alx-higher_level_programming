@@ -22,8 +22,7 @@ def main(fsize, status):
         if (rcount == 10):
             printer(fsize)
             rcount = 0
-    if (rcount != 0):
-        printer(fsize)
+    printer(fsize)
 
 
 if __name__ == '__main__':
