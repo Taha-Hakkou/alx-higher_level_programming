@@ -13,9 +13,8 @@ if __name__ == '__main__':
                                    passwd=pw, db=db, charset="utf8")
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM states \
-                      WHERE name LIKE 'N%' ORDER BY id ASC;")
-    query_rows = myCursor.fetchall()
-    for row in query_rows:
+                      WHERE LEFT(name, 1) LIKE 'N' ORDER BY id ASC;")
+    for row in myCursor.fetchall():
         print(row)
     myCursor.close()
     myConnection.close()
