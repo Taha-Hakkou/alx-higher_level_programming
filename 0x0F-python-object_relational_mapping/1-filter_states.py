@@ -13,7 +13,8 @@ if __name__ == '__main__':
                                    passwd=pw, db=db, charset="utf8")
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM states \
-                      WHERE LEFT(name, 1) LIKE 'N' ORDER BY id ASC;")
+                      WHERE name LIKE BINARY 'N%' \
+                      ORDER BY id ASC;")
     for row in myCursor.fetchall():
         print(row)
     myCursor.close()
