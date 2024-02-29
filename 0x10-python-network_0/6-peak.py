@@ -3,6 +3,7 @@
 6-peak.py
 """
 
+
 def find_peak(list_of_integers):
     """ finds a peak in a list of unsorted integers """
     lint = list_of_integers
