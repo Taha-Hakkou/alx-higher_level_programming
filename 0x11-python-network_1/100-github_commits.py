@@ -10,5 +10,5 @@ if __name__ == '__main__':
     response = requests.get(url)
     for element in response.json()[:10]:
         commit = element.get('commit')
-        print(f'{commit.get("tree").get("sha")} \
+        print(f'{commit.get("tree").get("sha")}: \
 {commit.get("author").get("name")}')
